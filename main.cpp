@@ -8,7 +8,7 @@ TEST(Suite1, Test1)
     SqList<int> L(N);
 
     for (int i = 0; i < N; i++) {
-        L.insert(i + 1);
+        L.insert(i , i + 1);
     }
 
     int n = 0;
@@ -18,6 +18,10 @@ TEST(Suite1, Test1)
     }
 
     EXPECT_EQ(n, N);
+
+    //test-get
+    EXPECT_EQ(L.get(0), 1);
+    EXPECT_EQ(L.get(0), 2);
  
 }
 

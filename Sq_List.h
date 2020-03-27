@@ -1,5 +1,5 @@
-#ifndef _SQ_LIST_0_2_H_
-#define _SQ_LIST_0_2_H_
+#ifndef _SQ_LIST_1_0_H_
+#define _SQ_LIST_1_0_H_
 
 #include <functional>
 
@@ -10,15 +10,61 @@ class SqList
 {
     public:
         SqList(int n) : list(new int[n]), size(0), capacity(n) {};
-        ~SqList(){};
+        ~SqList() {};
 
-        Status insert(T e)
+        Status IsEmpty() { return 0 == size; };
+
+        T get(int index) 
         {
-            if (size < capacity) {
-                list[size++] = e;
-                return true;
+            if (index >= size || index < 0) exit(1);
+            return list[index ];
+        }
+
+        bool set(int index, T data)
+        {
+            if (index >= size || index < 0) exit(1);
+            list[index] = data;
+            return true;
+        }
+
+        void insert(int index, T data) 
+        {
+            if (size >= capacity || index >= size || index < 0) exit(1);
+            for (int i = size; i > index ; i--) list[i] = list[i - 1];
+            list[index] = data;
+            size++;
+        }
+
+        T remove(int index)
+        {
+            if (index >= size || index < 0 || IsEmpty()) exit(1);
+
+            int tmp = list[index]
+            for (int i = index; i < size; index++) list[index] = list[index + 1];
+            size--;
+            return tmp;
+        }
+
+        int removeAll(T data)
+        {
+            int count = 0;
+            for (int i = 0; i < size; i++) {
+                if (data == list[i]) {
+                    count++;
+                    remove(i);
+                }
             }
-            return false;
+
+            return count;
+        }
+
+        int contains(T data)
+        {
+            int count = 0;
+            for (int i = 0; i < size; i++) {
+                if (data == list[i]) count++;
+            }
+            return count;
         }
 
         void traversal(const std::function<void(const T &)> &visit) 
