@@ -39,7 +39,7 @@ class SqList
         {
             if (index >= size || index < 0 || IsEmpty()) exit(1);
 
-            int tmp = list[index]
+            int tmp = list[index];
             for (int i = index; i < size; index++) list[index] = list[index + 1];
             size--;
             return tmp;
