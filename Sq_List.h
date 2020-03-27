@@ -29,8 +29,8 @@ class SqList
 
         void insert(int index, T data) 
         {
-            if (size >= capacity || index >= size || index < 0) exit(1);
-            for (int i = size; i > index ; i--) list[i] = list[i - 1];
+            if (size >= capacity || index > size || index < 0) exit(1);
+            for (int i = size; i > index; i--) list[i] = list[i - 1];
             list[index] = data;
             size++;
         }
