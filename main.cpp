@@ -21,7 +21,7 @@ TEST(Suite1, Test1)
 
     //test-get
     EXPECT_EQ(L.get(0), 1);
-    EXPECT_EQ(L.get(0), 2);
+    EXPECT_EQ(L.get(1), 2);
  
 }
 
