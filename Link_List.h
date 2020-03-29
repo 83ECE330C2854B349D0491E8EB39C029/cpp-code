@@ -6,6 +6,13 @@
 
 template <typename T>
 class LinkList {
+ private:
+  struct Node {
+   T data;
+   Node *next;
+  };
+
+  Node *first;
  public:
   LinkList() : first(nullptr) {}
   ~LinkList() {}
@@ -43,14 +50,6 @@ class LinkList {
   };
   iterator begin() { return iterator(first); }
   iterator end() { return iterator(nullptr); }
-
- private:
-  struct Node {
-    T data;
-    Node *next;
-  };
-
-  Node *first;
 };
 
 #endif
