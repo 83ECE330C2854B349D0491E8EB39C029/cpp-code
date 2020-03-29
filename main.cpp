@@ -1,32 +1,26 @@
 #include <iostream>
-#include "Sq_List.h"
+
+#include "Link_List.h"
 #include "gtest/gtest.h"
 
-TEST(Suite1, Test1)
-{
-    const int N = 10;
-    SqList<int> L(N);
+TEST(Suite1, Test1) {
+  const int N = 10;
+  LinkList<int> L;
 
-    for (int i = 0; i < N; i++) {
-        L.insert(i , i + 1);
-    }
+  for (int i = 0; i < N; i++) {
+    L.insert(i + 1);
+  }
 
-    int n = 0;
-    for (int d : L) {
-        ++n;
-        EXPECT_EQ(d, n);
-    }
+  int n = N;
+  for (int d : L) {
+    EXPECT_EQ(d, n);
+    --n;
+  }
 
-    EXPECT_EQ(n, N);
-
-    //test-get
-    EXPECT_EQ(L.get(0), 1);
-    EXPECT_EQ(L.get(0), 2);
- 
+  EXPECT_EQ(n, 0);
 }
 
-int main(int argc, char **argv) 
-{
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-} 
+int main(int argc, char **argv) {
+  ::testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
+}
