@@ -19,7 +19,7 @@ class SqList {
   }
 
   bool set(int index, T data) {
-    if (index >= size || index < 0) exit(1);
+    if (index >= size || index < 0) return false;
     list[index] = data;
     return true;
   }

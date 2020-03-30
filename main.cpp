@@ -8,16 +8,16 @@ TEST(Suite1, Test1) {
   LinkList<int> L;
 
   for (int i = 0; i < N; i++) {
-    L.insert(i + 1);
+    L.insert(i, i + 1);
   }
 
-  int n = N;
+  int n = 0;
   for (int d : L) {
+    ++n;
     EXPECT_EQ(d, n);
-    --n;
   }
 
-  EXPECT_EQ(n, 0);
+  EXPECT_EQ(n, N);
 }
 
 int main(int argc, char **argv) {
