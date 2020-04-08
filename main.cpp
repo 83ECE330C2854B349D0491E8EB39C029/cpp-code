@@ -1,23 +1,16 @@
 #include <iostream>
-
-#include "Link_List.h"
+#include "Sq_Stack.h"
 #include "gtest/gtest.h"
 
 TEST(Suite1, Test1) {
-  const int N = 10;
-  LinkList<int> L;
+  const int N = 6;
+  Stack<int> S;
 
-  for (int i = 0; i < N; i++) {
-    L.insert(i, i + 1);
+  for (int i = 1; i < N; i++) {
+    S.push(i);
   }
 
-  int n = 0;
-  for (int d : L) {
-    ++n;
-    EXPECT_EQ(d, n);
-  }
-
-  EXPECT_EQ(n, N);
+  EXPECT_EQ(S.pop(), 5);
 }
 
 int main(int argc, char **argv) {

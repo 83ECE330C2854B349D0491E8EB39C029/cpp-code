@@ -8,7 +8,7 @@ typedef int Status;
 template <typename T>
 class SqList {
  public:
-  SqList(int n) : list(new int[n]), size(0), capacity(n){};
+  SqList(int n = 10) : list(new int[n]), size(0), capacity(n){};
   ~SqList(){};
 
   Status IsEmpty() { return 0 == size; };
@@ -25,17 +25,17 @@ class SqList {
   }
 
   void insert(int index, T data) {
-    if (size >= capacity || index >= size || index < 0) exit(1);
+    if (size >= capacity || index > size || index < 0) exit(1);
     for (int i = size; i > index; i--) list[i] = list[i - 1];
     list[index] = data;
     size++;
   }
 
   T remove(int index) {
-    if (index >= size || index < 0 || IsEmpty()) exit(1);
+    if (index < 0 || index >= capacity || IsEmpty()) exit(1);
 
     int tmp = list[index];
-    for (int i = index; i < size; index++) list[index] = list[index + 1];
+    for (int i = index; i < size - 1; index++) list[index] = list[index + 1];
     size--;
     return tmp;
   }
