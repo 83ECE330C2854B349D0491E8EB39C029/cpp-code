@@ -34,8 +34,7 @@ class Stack : protected SqList<T>
         {
             return stacktop + 1;
         }
-        
-       
+
 };
 
 #endif

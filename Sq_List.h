@@ -8,7 +8,7 @@ typedef int Status;
 template <typename T>
 class SqList {
  public:
-  SqList(int n = 10) : list(new int[n]), size(0), capacity(n){};
+  SqList(int n = 10) : list(new T[n]), size(0), capacity(n){};
   ~SqList(){};
 
   Status IsEmpty() { return 0 == size; };

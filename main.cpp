@@ -1,16 +1,14 @@
 #include <iostream>
-#include "Sq_Stack.h"
+#include "Match.h"
 #include "gtest/gtest.h"
 
 TEST(Suite1, Test1) {
-  const int N = 6;
-  Stack<int> S;
+  Match t_match;
+  std::string demo1 = "{([wick])}";
+  std::string demo2 = "{nick)";
 
-  for (int i = 1; i < N; i++) {
-    S.push(i);
-  }
-
-  EXPECT_EQ(S.pop(), 5);
+  EXPECT_EQ(true, t_match.Tmatch(demo1));
+  EXPECT_EQ(false, t_match.Tmatch(demo2));
 }
 
 int main(int argc, char **argv) {
